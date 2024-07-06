@@ -6,17 +6,34 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="assets/prism.css" />
   <link rel="stylesheet" href="assets/style.css" />
   <script src="assets/prefixfree.js"></script>
-  <script src="assets/prism.js" defer></script>
 
   <title>peaske | blog</title>
+
+  <style>
+    .blog-summary {
+      text-decoration: none;
+      color: black;
+    }
+
+    .blog-summary > h3:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 
 <body>
   <h2>Blog</h2>
-  <p>Nothing to see here yet...</p>
+  <a class="blog-summary" href="/blogs/multithreaded-testing-in-rust">
+    <h3>Multithreaded Testing in Rust</h3>
+    <small>July 6, 2024</small>
+    <p>
+      I refactored some test setup/teardown functions in the integration tests
+      we have at our company and was able to speed up test execution time by
+      around 680%.
+    </p>
+  </a>
   <br />
   <a href="/">Back</a>
 </body>
