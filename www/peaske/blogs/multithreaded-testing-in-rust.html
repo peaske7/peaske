@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="../assets/prism.css" />
+  <link rel="stylesheet" href="../assets/style.css" />
+  <script src="../assets/prefixfree.js"></script>
+
+  <title>peaske | blog</title>
+
+  <style>
+    .results-table {
+      border-collapse: collapse;
+      width: 100%;
+      text-align: left;
+    }
+
+    .results-table th,
+    td {
+      border: solid 1px black;
+      padding: 0.5em;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>
+    How we saw a 640% Improvement in Test Time by moving to Multithreaded
+    Testing in Rust
+  </h2>
+  <small>July 6, 2024</small>
+
+  <p>
+    I recently tweaked the setup and teardown functions in our team's
+    integration tests to allow for multithreaded test execution. Since we saw
+    positive results, I thought I'd share how we implemented these changes.
+    Tests are run multiple times a day before and after commits, and
+    shortening the execution time of these tests improves developer
+    productivity and saves on developer time.
+  </p>
+
+  <table class="results-table">
+    <caption>
+      <small>
+        Improvment in test execution from single-threaded to multi-threaded
+        testing by executor
+      </small>
+    </caption>
+    <thead>
+      <tr>
+        <th>Test Executor</th>
+        <th>Single-threaded</th>
+        <th>Multi-threaded</th>
+        <th>Improvment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>cargo</td>
+        <td>244.50 s</td>
+        <td>62.96 s</td>
+        <td>388 %</td>
+      </tr>
+      <tr>
+        <td>cargo-nextest</td>
+        <td>283.84 s</td>
+        <td>44.28 s</td>
+        <td>641 %</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <br />
+
+  <h3>Set up</h3>
+
+  <p>
+    Our team's service uses an internal library that wraps
+    <a href="https://github.com/rwf2/Rocket">Rocket</a>, but in the code
+    examples below, I'll be using the
+    <a href="https://github.com/tokio-rs/axum">axum</a>. We have more than 300
+    integration tests in our codebase with most using a database instance in
+    docker while mocking external endpoints with
+    <a href="https://github.com/LukeMathWalker/wiremock-rs">wiremock</a>.
+  </p>
+
+  <p>
+    To simplify the setup and teardown of these tests, we used to migrate and
+    drop all database tables per each test and used the same test server.
+    Naturally, only a single test could be run at any point in time.
+  </p>
+
+  <pre><code class="language-rust"></code></pre>
+
+  <p>
+    Why doesn't sqlx::test doesn't work? Constraints using sqlx::test is 1)
+    The codebase needs to use sqlx 2) Using sqlx::test with other test-macros
+    (like test_case) may prove difficult.
+
+    For example ...
+  </p>
+
+  <br />
+
+  <a href="/">Home</a> - <a href="/blog">Blogs</a>
+
+  <script src="../assets/prism.js" defer></script>
+</body>
+
+</html>

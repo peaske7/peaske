@@ -1,0 +1,4 @@
+target
+
+# since it's a library
+Cargo.lock
