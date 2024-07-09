@@ -5,12 +5,13 @@ use multithreaded_testing_in_rust::{AppState, Config, ExternalApiClient, Name, N
 use reqwest::Client;
 use sqlx::{migrate, query, PgPool};
 use std::sync::Arc;
+use test_case::test_case;
 use wiremock::{
     matchers::{method, path},
     Mock, MockServer, ResponseTemplate,
 };
 
-async fn setup_single_threaded() -> (PgPool, MockServer, AppClient) {
+async fn setup() -> (PgPool, MockServer, AppClient) {
     let config = Config {
         database_url: "postgres://user:pass@0.0.0.0:5432/test".to_string(),
         app_api_url: "http://localhost:9000".to_string(),
@@ -61,7 +62,7 @@ fn mock_send_notification() -> Mock {
 #[tokio::test]
 #[ignore]
 async fn test_create_name() {
-    let (_, mock_server, app_client) = setup_single_threaded().await;
+    let (_, mock_server, app_client) = setup().await;
 
     mock_send_notification().mount(&mock_server).await;
 
@@ -83,10 +84,36 @@ async fn test_create_name() {
     assert_eq!(names.first().unwrap(), &expected_name);
 }
 
+#[test_case("Rob")]
+#[test_case("Knuth")]
+#[tokio::test]
+async fn test_create_name_with_test_case(value: &str) {
+    let (_, mock_server, app_client) = setup().await;
+
+    mock_send_notification().mount(&mock_server).await;
+
+    // No names should be present before creation
+    let names = app_client.get_names().await;
+    assert!(names.is_empty());
+
+    // Create name
+    app_client.create_name(value).await;
+
+    // Only "Rob" should be fetched
+    let names = app_client.get_names().await;
+    assert_eq!(names.len(), 1);
+
+    let expected_name = Name {
+        id: 1,
+        value: value.to_string(),
+    };
+    assert_eq!(names.first().unwrap(), &expected_name);
+}
+
 #[tokio::test]
 #[ignore]
 async fn test_delete_name() {
-    let (db_pool, mock_server, app_client) = setup_single_threaded().await;
+    let (db_pool, mock_server, app_client) = setup().await;
     let mut conn = db_pool.acquire().await.unwrap();
     query!("INSERT INTO name (value) VALUES ('Rob')")
         .execute(conn.as_mut())
