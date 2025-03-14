@@ -22,20 +22,20 @@
 	<!-- Preload critical images -->
 	<link
 		rel="preload"
-		href="/static/assets/a6400-03871.webp?quality=85"
+		href="/assets/a6400-03871.webp?quality=85"
 		as="image"
 		type="image/webp"
 		fetchpriority="high"
 	/>
 	<link
 		rel="preload"
-		href="/static/assets/a6400-03307.webp?quality=85"
+		href="/assets/a6400-03307.webp?quality=85"
 		as="image"
 		type="image/webp"
 	/>
 	<link
 		rel="preload"
-		href="/static/assets/a6400-03077.webp?quality=85"
+		href="/assets/a6400-03077.webp?quality=85"
 		as="image"
 		type="image/webp"
 	/>
