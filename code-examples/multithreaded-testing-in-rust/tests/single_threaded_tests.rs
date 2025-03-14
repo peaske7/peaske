@@ -11,6 +11,67 @@ use wiremock::{
     Mock, MockServer, ResponseTemplate,
 };
 
+// async fn setup() -> (PgPool, MockServer, AppClient) {
+//     let config = Config {
+//         db_url: "postgres://user:pass@0.0.0.0:5432/test".to_string(),
+//         app_url: "http://0.0.0.0:8000".to_string(),
+//         ext_url: "http://0.0.0.0:8080".to_string(),
+//     };
+//     let db_pool = PgPool::connect(&config.db_url).await.unwrap();
+//     let mut conn = db_pool.acquire().await.unwrap();
+//
+//     // cleanup db and run migrate ...
+//
+//     let notifier_api = ExternalApiClient {
+//         base_url: config.ext_url.clone(),
+//         client: Arc::new(Client::new()),
+//     };
+//     let app_client = AppClient {
+//         base_url: config.app_url,
+//         client: Arc::new(Client::new()),
+//     };
+//     let app_state = AppState {
+//         db: db_pool.clone(),
+//         notifier_api,
+//     };
+//
+//     start_server(app_state, Some(9000)).await;
+//     let mock_server = MockServer::start().await;
+//     (db_pool, mock_server, app_client)
+// }
+
+// fn mock_send_notification() -> Mock {
+//     Mock::given(method("POST"))
+//         .and(path("/external-api"))
+//         .respond_with(ResponseTemplate::new(200))
+// }
+//
+// #[test_case::test_case("Rob")]
+// #[test_case::test_case("Knuth")]
+// #[tokio::test]
+// async fn test_create_name_with_test_case(value: &str) {
+//     let (_, mock_server, app_client) = setup().await;
+//
+//     mock_send_notification().mount(&mock_server).await;
+//
+//     // No names should be present before creation
+//     let names = app_client.get_names().await;
+//     assert!(names.is_empty());
+//
+//     // Create name
+//     app_client.create_name(value).await;
+//
+//     // Only "Rob" should be fetched
+//     let names = app_client.get_names().await;
+//     assert_eq!(names.len(), 1);
+//
+//     let expected_name = Name {
+//         id: 1,
+//         value: value.to_string(),
+//     };
+//     assert_eq!(names.first().unwrap(), &expected_name);
+// }
+
 async fn setup() -> (PgPool, MockServer, AppClient) {
     let config = Config {
         database_url: "postgres://user:pass@0.0.0.0:5432/test".to_string(),
@@ -58,32 +119,6 @@ fn mock_send_notification() -> Mock {
         .and(path("/external-api"))
         .respond_with(ResponseTemplate::new(200))
 }
-
-#[tokio::test]
-#[ignore]
-async fn test_create_name() {
-    let (_, mock_server, app_client) = setup().await;
-
-    mock_send_notification().mount(&mock_server).await;
-
-    // No names should be present before creation
-    let names = app_client.get_names().await;
-    assert!(names.is_empty());
-
-    // Create name
-    app_client.create_name("Rob").await;
-
-    // Only "Rob" should be fetched
-    let names = app_client.get_names().await;
-    assert_eq!(names.len(), 1);
-
-    let expected_name = Name {
-        id: 1,
-        value: "Rob".to_string(),
-    };
-    assert_eq!(names.first().unwrap(), &expected_name);
-}
-
 #[test_case("Rob")]
 #[test_case("Knuth")]
 #[tokio::test]
@@ -106,6 +141,31 @@ async fn test_create_name_with_test_case(value: &str) {
     let expected_name = Name {
         id: 1,
         value: value.to_string(),
+    };
+    assert_eq!(names.first().unwrap(), &expected_name);
+}
+
+#[tokio::test]
+#[ignore]
+async fn test_create_name() {
+    let (_, mock_server, app_client) = setup().await;
+
+    mock_send_notification().mount(&mock_server).await;
+
+    // No names should be present before creation
+    let names = app_client.get_names().await;
+    assert!(names.is_empty());
+
+    // Create name
+    app_client.create_name("Rob").await;
+
+    // Only "Rob" should be fetched
+    let names = app_client.get_names().await;
+    assert_eq!(names.len(), 1);
+
+    let expected_name = Name {
+        id: 1,
+        value: "Rob".to_string(),
     };
     assert_eq!(names.first().unwrap(), &expected_name);
 }
