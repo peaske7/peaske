@@ -37,5 +37,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy ./ --project-name=peaske
+          command: pages deploy ./www/build --project-name=peaske
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
