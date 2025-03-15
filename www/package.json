@@ -14,7 +14,7 @@
 		"@biomejs/biome": "1.9.4",
 		"@sveltejs/adapter-static": "^3.0.8",
 		"@sveltejs/enhanced-img": "^0.4.4",
-		"@sveltejs/kit": "^2.19.0",
+		"@sveltejs/kit": "^2.19.1",
 		"@sveltejs/vite-plugin-svelte": "^4.0.4",
 		"autoprefixer": "^10.4.21",
 		"svelte": "^5.23.0",
