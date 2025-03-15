@@ -36,7 +36,7 @@
 </p>
 
 <section class="mt-20">
-	<div class="mb-40 portrait">
+	<div class="mb-40 portrait content-visibility-auto">
 		<enhanced:img
 			src="/static/assets/a6400-04554.jpg?quality=85"
 			alt="Keelung"
@@ -50,7 +50,7 @@
 		</p>
 	</div>
 
-	<div class="mb-40 portrait">
+	<div class="mb-40 portrait content-visibility-auto">
 		<enhanced:img
 			src="/static/assets/a6400-04481.jpg?quality=85"
 			alt="Keelung"
@@ -63,7 +63,7 @@
 		</p>
 	</div>
 
-	<div class="mb-40 portrait">
+	<div class="mb-40 portrait content-visibility-auto">
 		<enhanced:img
 			src="/static/assets/a6400-04422.jpg?quality=85"
 			alt="Dihua Street"
@@ -76,12 +76,12 @@
 		</p>
 	</div>
 
-	<div class="mb-40 portrait">
+	<div class="mb-40 portrait content-visibility-auto">
 		<enhanced:img
 			src="/static/assets/a6400-03871.jpg?quality=85"
 			alt="Odawara Castle"
-			fetchpriority="high"
-			decoding="sync"
+			loading="lazy"
+			decoding="async"
 			sizes="(max-width: 768px) 100vw, 600px"
 			style="background-size: cover;"
 		/>
@@ -90,11 +90,11 @@
 		</p>
 	</div>
 
-	<div class="mb-40 portrait">
+	<div class="mb-40 portrait content-visibility-auto">
 		<enhanced:img
 			src="/static/assets/a6400-03307.jpg?quality=85"
 			alt="Kamakura"
-			fetchpriority="high"
+			loading="lazy"
 			decoding="async"
 			sizes="(max-width: 768px) 100vw, 600px"
 			style="background-size: cover;"
@@ -104,11 +104,11 @@
 		</p>
 	</div>
 
-	<div class="mb-40 portrait">
+	<div class="mb-40 portrait content-visibility-auto">
 		<enhanced:img
 			src="/static/assets/a6400-03077.jpg?quality=85"
 			alt="Engakuji Temple"
-			fetchpriority="high"
+			loading="lazy"
 			decoding="async"
 			sizes="(max-width: 768px) 100vw, 600px"
 		/>
