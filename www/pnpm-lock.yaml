@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      atropos:
+        specifier: ^2.0.2
+        version: 2.0.2
       terser:
         specifier: ^5.39.0
         version: 5.39.0
@@ -583,6 +586,10 @@ packages:
   aria-query@5.3.2:
     resolution: {integrity: sha512-COROpnaoap1E2F000S62r6A60uHZnmlvomhfyT2DlTcrY1OrBKn2UhH7qn5wTC9zMvD0AY7csdPSNwKP+7WiQw==}
     engines: {node: '>= 0.4'}
+
+  atropos@2.0.2:
+    resolution: {integrity: sha512-8f0u0hEOlBTWTSvzY17TcHuQjxUIpkTBq70/I4+UF5B43ORtOoRjm8TPBYEgLM8Ba9AWf6PDtkagbYoybdjaKg==}
+    engines: {node: '>= 12.0.0'}
 
   autoprefixer@10.4.21:
     resolution: {integrity: sha512-O+A6LWV5LDHSJD3LjHYoNi4VLsj/Whi7k6zG12xTYaU4cQ8oxQGckXNX8cRHK5yOZ/ppVHe0ZBXGzSV9jXdVbQ==}
@@ -1590,6 +1597,8 @@ snapshots:
   arg@5.0.2: {}
 
   aria-query@5.3.2: {}
+
+  atropos@2.0.2: {}
 
   autoprefixer@10.4.21(postcss@8.5.3):
     dependencies:

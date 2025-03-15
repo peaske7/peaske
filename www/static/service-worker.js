@@ -5,14 +5,14 @@ const LOW_RES_CACHE_NAME = 'peaske-low-res-v1';
 
 // Assets to cache immediately on install
 const PRECACHE_ASSETS = [
-  '/assets/a6400-03871.webp',
-  '/assets/a6400-03307.webp',
-  '/assets/a6400-03077.webp',
-  '/assets/a6400-02423.webp',
-  '/assets/a6400-01926.webp',
-  '/assets/a6400-01621.webp',
-  '/assets/a6400-01439.webp',
-  '/assets/a6400-00985.webp',
+  '/assets/a6400-03871.jpg',
+  '/assets/a6400-03307.jpg',
+  '/assets/a6400-03077.jpg',
+  '/assets/a6400-02423.jpg',
+  "/assets/a6400-01926.jpg",
+  "/assets/a6400-01621.jpg",
+  "/assets/a6400-01439.jpg",
+  "/assets/a6400-00985.jpg",
 ];
 
 // Install event - precache critical assets

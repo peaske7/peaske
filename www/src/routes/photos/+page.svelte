@@ -1,48 +1,31 @@
-<script lang="ts">
-	const landscape = { width: 1067, height: 1600 };
-	const portrait = { width: 1600, height: 1067 };
-
-	// Define image dimensions to prevent layout shifts
-	const imageDimensions = {
-		"a6400-03871": portrait, // Portrait
-		"a6400-03307": portrait, // Portrait
-		"a6400-03077": portrait, // Portrait
-		"a6400-02423": landscape, // Landscape
-		"a6400-01926": portrait, // Portrait
-		"a6400-01621": landscape, // Landscape
-		"a6400-01867": landscape, // Landscape
-		"a6400-01715": landscape, // Landscape
-		"a6400-01439": portrait, // Portrait
-		"a6400-00985": landscape, // Landscape
-	};
+<script lang="ts" context="module">
 </script>
 
 <svelte:head>
 	<title>peaske | photos</title>
-	<!-- Preload critical images -->
 	<link
 		rel="preload"
-		href="/assets/a6400-03871.webp?quality=85"
+		href="/assets/a6400-03871.jpg?quality=85"
 		as="image"
-		type="image/webp"
+		type="image/jpeg"
 		fetchpriority="high"
 	/>
 	<link
 		rel="preload"
-		href="/assets/a6400-03307.webp?quality=85"
+		href="/assets/a6400-03307.jpg?quality=85"
 		as="image"
-		type="image/webp"
+		type="image/jpeg"
 	/>
 	<link
 		rel="preload"
-		href="/assets/a6400-03077.webp?quality=85"
+		href="/assets/a6400-03077.jpg?quality=85"
 		as="image"
-		type="image/webp"
+		type="image/jpeg"
 	/>
 	<link rel="dns-prefetch" href="/" />
 	<link rel="preconnect" href="/" />
 	<meta content="DPR, Width, Viewport-Width, ECT, RTT" />
-	<meta name="image-compression" content="webp, quality=85, resize=fit" />
+	<meta name="image-compression" content="jpg, quality=85, resize=fit" />
 </svelte:head>
 
 <h2>Photos</h2>
@@ -55,7 +38,47 @@
 <section class="mt-20">
 	<div class="mb-40 portrait">
 		<enhanced:img
-			src="/static/assets/a6400-03871.webp?quality=85"
+			src="/static/assets/a6400-04554.jpg?quality=85"
+			alt="Keelung"
+			fetchpriority="high"
+			decoding="sync"
+			sizes="(max-width: 768px) 100vw, 600px"
+			style="background-size: cover;"
+		/>
+		<p class="my-4">
+			<span>Keelung</span>
+		</p>
+	</div>
+
+	<div class="mb-40 portrait">
+		<enhanced:img
+			src="/static/assets/a6400-04481.jpg?quality=85"
+			alt="Keelung"
+			fetchpriority="high"
+			decoding="sync"
+			sizes="(max-width: 768px) 100vw, 600px"
+		/>
+		<p class="my-4">
+			<span>Keelung</span>
+		</p>
+	</div>
+
+	<div class="mb-40 portrait">
+		<enhanced:img
+			src="/static/assets/a6400-04422.jpg?quality=85"
+			alt="Dihua Street"
+			fetchpriority="high"
+			decoding="sync"
+			sizes="(max-width: 768px) 100vw, 600px"
+		/>
+		<p class="my-4">
+			<span>Dihua Street</span>
+		</p>
+	</div>
+
+	<div class="mb-40 portrait">
+		<enhanced:img
+			src="/static/assets/a6400-03871.jpg?quality=85"
 			alt="Odawara Castle"
 			fetchpriority="high"
 			decoding="sync"
@@ -63,13 +86,13 @@
 			style="background-size: cover;"
 		/>
 		<p class="my-4">
-			<span>小田原城 - Odawara Castle</span>
+			<span>Odawara Castle</span>
 		</p>
 	</div>
 
 	<div class="mb-40 portrait">
 		<enhanced:img
-			src="/static/assets/a6400-03307.webp?quality=85"
+			src="/static/assets/a6400-03307.jpg?quality=85"
 			alt="Kamakura"
 			fetchpriority="high"
 			decoding="async"
@@ -77,111 +100,111 @@
 			style="background-size: cover;"
 		/>
 		<p class="my-4">
-			<span>鎌倉 - Kamakura</span>
+			<span>Kamakura</span>
 		</p>
 	</div>
 
 	<div class="mb-40 portrait">
 		<enhanced:img
-			src="/static/assets/a6400-03077.webp?quality=85"
+			src="/static/assets/a6400-03077.jpg?quality=85"
 			alt="Engakuji Temple"
 			fetchpriority="high"
 			decoding="async"
 			sizes="(max-width: 768px) 100vw, 600px"
 		/>
 		<p class="my-4">
-			<span>円覚寺 - Engakuji Temple</span>
+			<span>Engakuji Temple</span>
 		</p>
 	</div>
 
 	<div class="mb-40 landscape content-visibility-auto">
 		<enhanced:img
-			src="/static/assets/a6400-02423.webp?quality=85"
+			src="/static/assets/a6400-02423.jpg?quality=85"
 			alt="Yokohama"
 			loading="lazy"
 			decoding="async"
 			sizes="(max-width: 768px) 100vw, 650px"
 		/>
 		<p class="my-4">
-			<span>横浜 - Yokohama</span>
+			<span>Yokohama</span>
 		</p>
 	</div>
 
 	<div class="mb-40 portrait content-visibility-auto">
 		<enhanced:img
-			src="/static/assets/a6400-01926.webp?quality=85"
+			src="/static/assets/a6400-01926.jpg?quality=85"
 			alt="Kenrokuen Garden"
 			loading="lazy"
 			decoding="async"
 			sizes="(max-width: 768px) 100vw, 600px"
 		/>
 		<p class="my-4">
-			<span>兼六園 - Kenrokuen Garden</span>
+			<span>Kenrokuen Garden</span>
 		</p>
 	</div>
 
 	<div class="mb-40 landscape content-visibility-auto">
 		<enhanced:img
-			src="/static/assets/a6400-01621.webp?quality=85"
+			src="/static/assets/a6400-01621.jpg?quality=85"
 			alt="Chidorigafuchi Moat"
 			loading="lazy"
 			decoding="async"
 			sizes="(max-width: 768px) 100vw, 650px"
 		/>
 		<p class="my-4">
-			<span>千鳥ヶ淵 - Chidorigafuchi Moat</span>
+			<span>Chidorigafuchi Moat</span>
 		</p>
 	</div>
 
 	<div class="mb-40 landscape content-visibility-auto">
 		<enhanced:img
-			src="/static/assets/a6400-01867.webp?quality=85"
+			src="/static/assets/a6400-01867.jpg?quality=85"
 			alt="21st Century Museum of Contemporary Art"
 			loading="lazy"
 			decoding="async"
 			sizes="(max-width: 768px) 100vw, 650px"
 		/>
 		<p class="my-4">
-			<span>金沢２１世紀美術館 - 21st Century Museum of Contemporary Art</span>
+			<span>21st Century Museum of Contemporary Art</span>
 		</p>
 	</div>
 
 	<div class="mb-40 landscape content-visibility-auto">
 		<enhanced:img
-			src="/static/assets/a6400-01715.webp?quality=85"
+			src="/static/assets/a6400-01715.jpg?quality=85"
 			alt="Coast of Tateyama, Chiba"
 			loading="lazy"
 			decoding="async"
 			sizes="(max-width: 768px) 100vw, 650px"
 		/>
 		<p class="my-4">
-			<span>館山の海岸 - Coast of Tateyama, Chiba</span>
+			<span>Coast of Tateyama, Chiba</span>
 		</p>
 	</div>
 
 	<div class="mb-40 portrait content-visibility-auto">
 		<enhanced:img
-			src="/static/assets/a6400-01439.webp?quality=85"
+			src="/static/assets/a6400-01439.jpg?quality=85"
 			alt="Atami Cherry Blossoms"
 			loading="lazy"
 			decoding="async"
 			sizes="(max-width: 768px) 100vw, 600px"
 		/>
 		<p class="my-4">
-			<span>熱海桜 - Atami Cherry Blossoms</span>
+			<span>Atami Cherry Blossoms</span>
 		</p>
 	</div>
 
 	<div class="mb-40 landscape content-visibility-auto">
 		<enhanced:img
-			src="/static/assets/a6400-00985.webp?quality=85"
+			src="/static/assets/a6400-00985.jpg?quality=85"
 			alt="Kofukuji Temple"
 			loading="lazy"
 			decoding="async"
 			sizes="(max-width: 768px) 100vw, 650px"
 		/>
 		<p class="my-4">
-			<span>興福寺 - Kofukuji Temple</span>
+			<span>Kofukuji Temple</span>
 		</p>
 	</div>
 </section>
