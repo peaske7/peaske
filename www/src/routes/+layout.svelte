@@ -19,13 +19,19 @@
 				<a href="https://grugbrain.dev" class="text-sm text-gray-400">The Grug Brained Developer</a>
 			</li>
 			<li>
-				<a href="https://mcfunley.com/choose-boring-technology" class="text-sm text-gray-400">Choose Boring Technology</a>
+				<a href="https://mcfunley.com/choose-boring-technology" class="text-sm text-gray-400"
+					>Choose Boring Technology</a
+				>
 			</li>
 			<li>
-				<a href="https://web.stanford.edu/~ouster/cgi-bin/aposd.php" class="text-sm text-gray-400">A Philosophy of Software Design</a>
+				<a href="https://web.stanford.edu/~ouster/cgi-bin/aposd.php" class="text-sm text-gray-400"
+					>A Philosophy of Software Design</a
+				>
 			</li>
 			<li>
-				<a href="https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate" class="text-sm">Parse, Don't Validate</a>
+				<a href="https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate" class="text-sm"
+					>Parse, Don't Validate</a
+				>
 			</li>
 		</ul>
 	</footer>

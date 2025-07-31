@@ -1,79 +1,77 @@
 <!doctype html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="x-dns-prefetch-control" content="on" />
+		<link rel="preconnect" href="/" crossorigin />
+		<meta http-equiv="Accept-CH" content="DPR, Width, Viewport-Width, ECT, RTT" />
 
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta http-equiv="x-dns-prefetch-control" content="on" />
-	<link rel="preconnect" href="/" crossorigin />
-	<meta http-equiv="Accept-CH" content="DPR, Width, Viewport-Width, ECT, RTT" />
+		%sveltekit.head%
 
-	%sveltekit.head%
-
-	<!-- Register service worker for image caching -->
-	<script>
+		<!-- Register service worker for image caching -->
+		<script>
 			if ('serviceWorker' in navigator) {
 				window.addEventListener('load', () => {
 					navigator.serviceWorker
-					.register('/service-worker.js')
-					.then((registration) => {
-						console.log('Service Worker registered with scope:', registration.scope);
-					})
-					.catch((error) => {
-						console.error('Service Worker registration failed:', error);
-					});
-			});
-							}
-						</script>
-
-	<!-- Advanced lazy loading with Intersection Observer -->
-	<script>
-			document.addEventListener('DOMContentLoaded', () => {
-			// Only run if Intersection Observer is supported
-			if ('IntersectionObserver' in window) {
-				const lazyImageObserver = new IntersectionObserver(
-					(entries, observer) => {
-						entries.forEach((entry) => {
-							if (entry.isIntersecting) {
-								const lazyImage = entry.target;
-
-								// If this is an enhanced:img with data-src
-								if (lazyImage.tagName === 'IMG' && lazyImage.dataset.src) {
-									// Set the src to trigger loading
-									lazyImage.src = lazyImage.dataset.src;
-
-									// Remove the observer once loaded
-									lazyImage.addEventListener('load', () => {
-										lazyImage.classList.add('loaded');
-									});
-
-									observer.unobserve(lazyImage);
-								}
-							}
+						.register('/service-worker.js')
+						.then((registration) => {
+							console.log('Service Worker registered with scope:', registration.scope);
+						})
+						.catch((error) => {
+							console.error('Service Worker registration failed:', error);
 						});
-					},
-					{
-						rootMargin: '200px 0px', // Start loading 200px before visible
-						threshold: 0.01 // Trigger when 1% visible
-					}
-				);
-
-				// Observe all images with data-src
-				document.querySelectorAll('img[data-src]').forEach((img) => {
-					lazyImageObserver.observe(img);
-				});
-			} else {
-				// Fallback for browsers without Intersection Observer
-				document.querySelectorAll('img[data-src]').forEach((img) => {
-					img.src = img.dataset.src;
 				});
 			}
-		});
-				</script>
-</head>
+		</script>
 
-<body data-sveltekit-preload-data="hover">
-	<div style="display: contents">%sveltekit.body%</div>
-</body>
+		<!-- Advanced lazy loading with Intersection Observer -->
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				// Only run if Intersection Observer is supported
+				if ('IntersectionObserver' in window) {
+					const lazyImageObserver = new IntersectionObserver(
+						(entries, observer) => {
+							entries.forEach((entry) => {
+								if (entry.isIntersecting) {
+									const lazyImage = entry.target;
 
+									// If this is an enhanced:img with data-src
+									if (lazyImage.tagName === 'IMG' && lazyImage.dataset.src) {
+										// Set the src to trigger loading
+										lazyImage.src = lazyImage.dataset.src;
+
+										// Remove the observer once loaded
+										lazyImage.addEventListener('load', () => {
+											lazyImage.classList.add('loaded');
+										});
+
+										observer.unobserve(lazyImage);
+									}
+								}
+							});
+						},
+						{
+							rootMargin: '200px 0px', // Start loading 200px before visible
+							threshold: 0.01 // Trigger when 1% visible
+						}
+					);
+
+					// Observe all images with data-src
+					document.querySelectorAll('img[data-src]').forEach((img) => {
+						lazyImageObserver.observe(img);
+					});
+				} else {
+					// Fallback for browsers without Intersection Observer
+					document.querySelectorAll('img[data-src]').forEach((img) => {
+						img.src = img.dataset.src;
+					});
+				}
+			});
+		</script>
+	</head>
+
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">%sveltekit.body%</div>
+	</body>
 </html>

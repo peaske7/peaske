@@ -165,14 +165,13 @@
 		height: auto;
 	}
 
-
 	:global(enhanced\:img) {
 		background-position: center;
 		background-repeat: no-repeat;
 		transition: opacity 0.3s ease;
 		cursor: pointer;
 	}
-	
+
 	:global(enhanced\:img:hover) {
 		opacity: 0.9;
 	}
