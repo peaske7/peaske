@@ -1,4 +1,11 @@
 <script lang="ts">
+	const posts = [
+		{
+			title: 'Good Software',
+			slug: 'good-software',
+			date: 'August 1, 2025'
+		}
+	]
 </script>
 
 <svelte:head>
@@ -24,10 +31,12 @@
 
 <section>
 	<ul class="list-none p-0">
-		<li class="mb-3">
-			<a href="/blog/good-software" class="no-underline hover:underline">Good Software</a>
-			<time class="ml-4 text-sm opacity-50">August 1, 2025</time>
-		</li>
+		{#each posts as post}
+			<li class="mb-3">
+				<a href="/blog/{post.slug}" class="no-underline hover:underline">{post.title}</a>
+				<time class="ml-4 text-sm opacity-50">{post.date}</time>
+			</li>
+		{/each}
 	</ul>
 </section>
 
