@@ -3,54 +3,23 @@
 
 <svelte:head>
 	<title>peaske | photos</title>
-	<link
-		rel="preload"
-		href="/assets/a6400-03871.jpg?quality=85"
-		as="image"
-		type="image/jpeg"
-		fetchpriority="high"
-	/>
-	<link
-		rel="preload"
-		href="/assets/a6400-03307.jpg?quality=85"
-		as="image"
-		type="image/jpeg"
-	/>
-	<link
-		rel="preload"
-		href="/assets/a6400-03077.jpg?quality=85"
-		as="image"
-		type="image/jpeg"
-	/>
-	<link rel="dns-prefetch" href="/" />
-	<link rel="preconnect" href="/" />
-	<meta content="DPR, Width, Viewport-Width, ECT, RTT" />
-	<meta name="image-compression" content="jpg, quality=85, resize=fit" />
 </svelte:head>
 
 <h2>Photos</h2>
-<p>Here are some of the photos I've taken.</p>
 
-<p>
-	<a href="/">Back</a>
-</p>
-
-<section class="mt-20">
-	<div class="mb-40 portrait content-visibility-auto">
+<section class="mt-8">
+	<div class="mb-16 portrait">
 		<enhanced:img
 			src="/static/assets/a6400-04554.jpg?quality=85"
 			alt="Keelung"
 			fetchpriority="high"
 			decoding="sync"
 			sizes="(max-width: 768px) 100vw, 600px"
-			style="background-size: cover;"
 		/>
-		<p class="my-4">
-			<span>Keelung</span>
-		</p>
+		<p class="mt-2 text-sm opacity-50 text-center">Keelung, Taiwan</p>
 	</div>
 
-	<div class="mb-40 portrait content-visibility-auto">
+	<div class="mb-16 portrait">
 		<enhanced:img
 			src="/static/assets/a6400-04481.jpg?quality=85"
 			alt="Keelung"
@@ -58,12 +27,10 @@
 			decoding="sync"
 			sizes="(max-width: 768px) 100vw, 600px"
 		/>
-		<p class="my-4">
-			<span>Keelung</span>
-		</p>
+		<p class="mt-2 text-sm opacity-50 text-center">Keelung, Taiwan</p>
 	</div>
 
-	<div class="mb-40 portrait content-visibility-auto">
+	<div class="mb-16 portrait">
 		<enhanced:img
 			src="/static/assets/a6400-04422.jpg?quality=85"
 			alt="Dihua Street"
@@ -71,40 +38,32 @@
 			decoding="sync"
 			sizes="(max-width: 768px) 100vw, 600px"
 		/>
-		<p class="my-4">
-			<span>Dihua Street</span>
-		</p>
+		<p class="mt-2 text-sm opacity-50 text-center">Dihua Street, Taipei</p>
 	</div>
 
-	<div class="mb-40 portrait content-visibility-auto">
+	<div class="mb-16 portrait">
 		<enhanced:img
 			src="/static/assets/a6400-03871.jpg?quality=85"
 			alt="Odawara Castle"
 			loading="lazy"
 			decoding="async"
 			sizes="(max-width: 768px) 100vw, 600px"
-			style="background-size: cover;"
 		/>
-		<p class="my-4">
-			<span>Odawara Castle</span>
-		</p>
+		<p class="mt-2 text-sm opacity-50 text-center">Odawara Castle, Japan</p>
 	</div>
 
-	<div class="mb-40 portrait content-visibility-auto">
+	<div class="mb-16 portrait">
 		<enhanced:img
 			src="/static/assets/a6400-03307.jpg?quality=85"
 			alt="Kamakura"
 			loading="lazy"
 			decoding="async"
 			sizes="(max-width: 768px) 100vw, 600px"
-			style="background-size: cover;"
 		/>
-		<p class="my-4">
-			<span>Kamakura</span>
-		</p>
+		<p class="mt-2 text-sm opacity-50 text-center">Kamakura, Japan</p>
 	</div>
 
-	<div class="mb-40 portrait content-visibility-auto">
+	<div class="mb-16 portrait">
 		<enhanced:img
 			src="/static/assets/a6400-03077.jpg?quality=85"
 			alt="Engakuji Temple"
@@ -112,12 +71,10 @@
 			decoding="async"
 			sizes="(max-width: 768px) 100vw, 600px"
 		/>
-		<p class="my-4">
-			<span>Engakuji Temple</span>
-		</p>
+		<p class="mt-2 text-sm opacity-50 text-center">Engakuji Temple, Kamakura</p>
 	</div>
 
-	<div class="mb-40 landscape content-visibility-auto">
+	<div class="mb-16 landscape">
 		<enhanced:img
 			src="/static/assets/a6400-02423.jpg?quality=85"
 			alt="Yokohama"
@@ -125,12 +82,10 @@
 			decoding="async"
 			sizes="(max-width: 768px) 100vw, 650px"
 		/>
-		<p class="my-4">
-			<span>Yokohama</span>
-		</p>
+		<p class="mt-2 text-sm opacity-50 text-center">Yokohama, Japan</p>
 	</div>
 
-	<div class="mb-40 portrait content-visibility-auto">
+	<div class="mb-16 portrait">
 		<enhanced:img
 			src="/static/assets/a6400-01926.jpg?quality=85"
 			alt="Kenrokuen Garden"
@@ -138,12 +93,10 @@
 			decoding="async"
 			sizes="(max-width: 768px) 100vw, 600px"
 		/>
-		<p class="my-4">
-			<span>Kenrokuen Garden</span>
-		</p>
+		<p class="mt-2 text-sm opacity-50 text-center">Kenrokuen Garden, Kanazawa</p>
 	</div>
 
-	<div class="mb-40 landscape content-visibility-auto">
+	<div class="mb-16 landscape">
 		<enhanced:img
 			src="/static/assets/a6400-01621.jpg?quality=85"
 			alt="Chidorigafuchi Moat"
@@ -151,12 +104,10 @@
 			decoding="async"
 			sizes="(max-width: 768px) 100vw, 650px"
 		/>
-		<p class="my-4">
-			<span>Chidorigafuchi Moat</span>
-		</p>
+		<p class="mt-2 text-sm opacity-50 text-center">Chidorigafuchi, Tokyo</p>
 	</div>
 
-	<div class="mb-40 landscape content-visibility-auto">
+	<div class="mb-16 landscape">
 		<enhanced:img
 			src="/static/assets/a6400-01867.jpg?quality=85"
 			alt="21st Century Museum of Contemporary Art"
@@ -164,12 +115,10 @@
 			decoding="async"
 			sizes="(max-width: 768px) 100vw, 650px"
 		/>
-		<p class="my-4">
-			<span>21st Century Museum of Contemporary Art</span>
-		</p>
+		<p class="mt-2 text-sm opacity-50 text-center">21st Century Museum, Kanazawa</p>
 	</div>
 
-	<div class="mb-40 landscape content-visibility-auto">
+	<div class="mb-16 landscape">
 		<enhanced:img
 			src="/static/assets/a6400-01715.jpg?quality=85"
 			alt="Coast of Tateyama, Chiba"
@@ -177,12 +126,10 @@
 			decoding="async"
 			sizes="(max-width: 768px) 100vw, 650px"
 		/>
-		<p class="my-4">
-			<span>Coast of Tateyama, Chiba</span>
-		</p>
+		<p class="mt-2 text-sm opacity-50 text-center">Tateyama Coast, Chiba</p>
 	</div>
 
-	<div class="mb-40 portrait content-visibility-auto">
+	<div class="mb-16 portrait">
 		<enhanced:img
 			src="/static/assets/a6400-01439.jpg?quality=85"
 			alt="Atami Cherry Blossoms"
@@ -190,12 +137,10 @@
 			decoding="async"
 			sizes="(max-width: 768px) 100vw, 600px"
 		/>
-		<p class="my-4">
-			<span>Atami Cherry Blossoms</span>
-		</p>
+		<p class="mt-2 text-sm opacity-50 text-center">Cherry Blossoms, Atami</p>
 	</div>
 
-	<div class="mb-40 landscape content-visibility-auto">
+	<div class="mb-16 landscape">
 		<enhanced:img
 			src="/static/assets/a6400-00985.jpg?quality=85"
 			alt="Kofukuji Temple"
@@ -203,16 +148,12 @@
 			decoding="async"
 			sizes="(max-width: 768px) 100vw, 650px"
 		/>
-		<p class="my-4">
-			<span>Kofukuji Temple</span>
-		</p>
+		<p class="mt-2 text-sm opacity-50 text-center">Kofukuji Temple, Nara</p>
 	</div>
 </section>
 
 <style lang="postcss">
-	p {
-		@apply my-4;
-	}
+	@reference "../../app.css";
 
 	:global(.portrait img) {
 		max-height: 600px;
@@ -224,28 +165,15 @@
 		height: auto;
 	}
 
-	.content-visibility-auto {
-		content-visibility: auto;
-		contain-intrinsic-size: 1px 1000px;
-	}
 
 	:global(enhanced\:img) {
 		background-position: center;
 		background-repeat: no-repeat;
-		transition: opacity 0.5s ease-in-out;
+		transition: opacity 0.3s ease;
+		cursor: pointer;
 	}
-
-	/* Add fade-in animation for images */
-	:global(enhanced\:img.loaded) {
-		animation: fadeIn 0.5s;
-	}
-
-	@keyframes fadeIn {
-		from {
-			opacity: 0.5;
-		}
-		to {
-			opacity: 1;
-		}
+	
+	:global(enhanced\:img:hover) {
+		opacity: 0.9;
 	}
 </style>

@@ -9,23 +9,36 @@
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"prepare": "svelte-kit sync"
+		"prepare": "svelte-kit sync",
+		"format": "prettier --write .",
+		"lint": "prettier --check ."
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.9.4",
 		"@sveltejs/adapter-static": "^3.0.8",
-		"@sveltejs/enhanced-img": "^0.4.4",
-		"@sveltejs/kit": "^2.19.1",
-		"@sveltejs/vite-plugin-svelte": "^4.0.4",
-		"autoprefixer": "^10.4.21",
-		"svelte": "^5.23.0",
-		"svelte-check": "^4.1.5",
-		"tailwindcss": "^3.4.17",
-		"typescript": "^5.8.2",
-		"vite": "^5.4.14"
+		"@sveltejs/enhanced-img": "^0.7.0",
+		"@sveltejs/kit": "^2.26.1",
+		"@sveltejs/vite-plugin-svelte": "^6.1.0",
+		"@tailwindcss/postcss": "^4.1.11",
+		"@tailwindcss/vite": "^4.1.11",
+		"mdsvex": "^0.12.6",
+		"postcss": "^8.5.6",
+		"prettier": "^3.6.2",
+		"prettier-plugin-svelte": "^3.4.0",
+		"svelte": "^5.37.1",
+		"svelte-check": "^4.3.0",
+		"tailwindcss": "^4.1.11",
+		"typescript": "^5.8.3",
+		"vite": "^7.0.6"
 	},
 	"dependencies": {
-		"terser": "^5.39.0"
+		"terser": "^5.43.1"
 	},
-	"packageManager": "pnpm@9.15.2+sha512.93e57b0126f0df74ce6bff29680394c0ba54ec47246b9cf321f0121d8d9bb03f750a705f24edc3c1180853afd7c2c3b94196d0a3d53d3e069d9e2793ef11f321"
+	"packageManager": "pnpm@10.14.0+sha512.ad27a79641b49c3e481a16a805baa71817a04bbe06a38d17e60e2eaee83f6a146c6a688125f5792e48dd5ba30e7da52a5cda4c3992b9ccf333f9ce223af84748",
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"esbuild",
+			"sharp",
+			"@tailwindcss/oxide"
+		]
+	}
 }
